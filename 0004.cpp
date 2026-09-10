@@ -34,6 +34,6 @@ int main (){
     cout<<"Area of Rectangle : "<<Area<<endl;
 
     double Circumference = rectangle.circumference();
-    cout<<"Circumference of Rectangle : "<<Circumference<<endl;
+    cout<<"Perimeter of Rectangle : "<<Circumference<<endl;
     return 0;
 }
