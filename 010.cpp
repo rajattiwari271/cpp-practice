@@ -189,7 +189,8 @@ void deleteNode(int position, Node*& head, Node*& tail) {
     Node* curr = prev->next;
 
     prev->next = curr->next;
-
+Destructor
+A Destructor is a special member function that is automatically invoked when an object is destroyed. It is primarily used to release resources such as dynamically allocated memory, open files, or network connections.
     curr->next = NULL;
 
     delete curr;
@@ -202,7 +203,8 @@ void print(Node* head) {
 
     while (temp != NULL) {
         cout << temp->data << " ";
-        temp = temp->next;
+        temp = temp->next;Destructor
+A Destructor is a special member function that is automatically invoked when an object is destroyed. It is primarily used to release resources such as dynamically allocated memory, open files, or network connections.
     }
 
     cout << endl;
