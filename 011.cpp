@@ -16,7 +16,9 @@ class Node {
         this->prev=NULL;
         this->next=NULL;
      }
+~Node(){
 
+}
 
 };
 
@@ -33,7 +35,8 @@ int getLength(Node* head){
     Node* temp = head ;
     while(temp != NULL) {
         temp = temp->next;
-        len ++;
+        len ++;	Lives until you explicitly delete it
+Speed	Very fast	S
 
     }
     return len ;
@@ -51,7 +54,6 @@ second->next = third;
 third->prev=second;
 
 print (first);
-
 
 
     return 0;

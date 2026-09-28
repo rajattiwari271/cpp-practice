@@ -17,6 +17,10 @@ class Node {
         this->next=NULL;
      }
 
+     ~Node(){
+
+     }
+
 
 };
 
@@ -119,6 +123,59 @@ void deleteList(Node* head){
     }
 }
 
+void deleteFromPos(Node* &head , Node* &tail, int position){
+    if(head == NULL){
+        cout<<"LL is empty"<<endl;
+        return;
+    }
+    if(head->next == NULL){
+        Node* temp = head;
+    head = NULL;
+tail = NULL;
+delete  temp ;
+return ;    }
+int len = getLength(head);
+if(position > len){
+    cout<<"Please enter valid value"<<endl;
+}
+
+if(position == 1 ){
+
+    Node* temp = head ;
+    head = head->next; 
+    head -> prev = NULL;
+    delete temp ;
+ return;
+
+}
+
+if(position == len){
+    Node* temp = tail;
+    tail = tail->prev;
+    tail->next = NULL;
+    temp->prev = NULL;
+    delete temp ;
+    return; 
+}
+
+int i = 1;
+Node* left = head;
+while ( i< position -1) {
+    left = left->next;
+    i++;
+
+}
+Node* curr = left ->next;
+Node* right = curr->next; 
+left -> next = right;
+right -> prev = left ;
+curr -> next = NULL;    
+curr -> prev = NULL;
+delete curr ;
+return;
+}
+
+
 int main (){
 
 Node* first = new Node(10);
@@ -132,24 +189,29 @@ second->prev = first;
 second->next = third;
 third->prev=second;
 
-print (first);
-cout<<endl;
+// print (first);
+// cout<<endl;
 
 insertAtHead(head,tail,101);
-cout<<endl;
+// cout<<endl;
 
-print(head);
-cout<<endl;
+// print(head);
+// cout<<endl;
 
 insertAtTail(head,tail,501);
-cout<<endl;
+// cout<<endl;
 
-print(head);
+// print(head);
 
 cout<<endl;
 insertAtPosition(head,tail,401,4
 );
  print(head);
+
+ cout<<endl;
+
+deleteFromPos(head,tail,1);
+print(head);
 
 
     return 0;
