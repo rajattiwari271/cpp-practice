@@ -42,6 +42,43 @@ while(slow!= NULL && fast != NULL){
 return slow;
 }
 
+int getLength(Node* head ){
+    int len = 0;
+    Node* temp = head;
+    while(temp != NULL){
+        temp = temp ->next;
+        len ++;
+    }
+    return len;
+}
+
+Node* reverseKNodes(Node* head,int k){
+    if(head == NULL){
+        cout<<"LL is empty"<<endl;
+        return NULL;
+    }
+    int length = getLength(head);
+    if(k>length){
+        cout<<"Enter Valid value for k"<<endl;
+        return head;
+    }
+
+    Node * prev = NULL;
+    Node* curr = head ;
+    Node* forward = curr->next;
+    int count = 0;
+    while (count<k){
+        forward = curr -> next ; 
+        curr -> next = prev ;
+        prev = curr ;
+        curr = forward ;
+        count ++;
+    }
+    if (forward!= NULL){
+        head-> next = reverseKNodes(forward,k);
+    }
+    return prev;
+}
 
 int main () {
 
@@ -59,6 +96,9 @@ fifth -> next = six;
 six->next = NULL;
 
 print(head);
+
+head = reverseKNodes(head,3);
+print(head); 
 
 // cout<<getMiddle(head)->data<<" ";
     return 0;
