@@ -33,6 +33,7 @@ void removeDuplicates(Node* &head){
         if(curr->data == curr->next->data ){
      Node* temp = curr->next;
      curr->next = curr->next->next;
+     temp->next = NULL;
     
           delete temp;
         }
